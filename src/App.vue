@@ -16,6 +16,7 @@ function plus() {
     </template>
   </HelloWorld>
   {{ num }}
+  <router-view/>
 </template>
 
 <style>

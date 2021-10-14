@@ -7,8 +7,13 @@ defineProps({
 });
 const emits = defineEmits(["qc"]);
 const count = ref(0);
+const arr = ref([1, 2, 3]);
+
 async function getR() {
   return axios.get("/api/helloworld");
+}
+function foc() {
+  arr.value++;
 }
 onMounted(async function () {
   let a = await getR();
@@ -17,9 +22,9 @@ onMounted(async function () {
 });
 watch(count, (n, o) => [console.log(n, o)]);
 </script>
-
 <template>
-  <el-button @click="emits('qc')" type="primary">{{count}}</el-button>
+  <li @click="foc" v-for="(item, index) in arr" :key="index">{{ item }}</li>
+  <el-button @click="emits('qc')" type="primary">{{ count }}</el-button>
   <slot name="header" :age="count"></slot>
 </template>
 
