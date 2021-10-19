@@ -1,15 +1,19 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
+import { resolve } from 'path'
 // https://vitejs.dev/config/
+console.log(resolve(__dirname,'src'))
 export default defineConfig({
   plugins: [vue()],
-  server:{
-    port:8090,
-    proxy:{
-      '/api':{
-        target:'http://119.3.103.139:8002/',
-        changeOrigin:true
+  resolve: {
+    alias: [{ find: '@', replacement: resolve('src') },{find:'@components',replacement:resolve('src','components')}]
+  },
+  server: {
+    port: 8090,
+    proxy: {
+      '/api': {
+        target: 'http://119.3.103.139:8002/',
+        changeOrigin: true
       }
     }
   }

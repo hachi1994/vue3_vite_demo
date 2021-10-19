@@ -4,7 +4,10 @@
 import { ref } from "vue";
 let routes = ref([
   { name: "home", path: "/" },
-  { name: "testRoute", path: "/testRoute" },
+  { name: "testRoute", path: "/testRoute/30" },
+  { name: "testProvide", path: "/testProvide" },
+  { name: "testMixin", path: "/testMixin" },
+  { name: "testDirectives", path: "/testDirectives" },
 ]);
 </script>
 
