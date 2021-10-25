@@ -24,7 +24,6 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router)
 app.use(ElementPlus)
-
 app.mixin({
     data() {
         return {
