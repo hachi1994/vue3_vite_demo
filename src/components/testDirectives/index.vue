@@ -1,8 +1,12 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref, reactive } from "vue";
 import Child from "./Child.vue";
+let hello = reactive({ say: "hello" });
 onMounted(function () {
-  console.log("testMixin");
+  console.log("testMixin", hello);
+  setTimeout(() => {
+    hello.say = "441";
+  }, 3000);
 });
 </script>
 <script>
@@ -41,6 +45,7 @@ export default {
   <input type="range" min="0" max="500" v-model="pinPadding" />
   <div v-position:[position]="pinPadding">自定义指令附带参数</div>
   <Child v-position:[position]="pinPadding" />
+  <span v-hello:ye="hello">{{ hello.say }}woqunimd</span>
 </template>
 
 <style scoped></style>

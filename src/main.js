@@ -31,4 +31,15 @@ app.mixin({
         }
     }
 })
+
+app.directive('hello',{
+    mounted(el,bind){
+        console.log('123!',el,bind)
+    }
+})
+
+//全局注入
+app.provide('agr',20)
+
+
 app.mount('#app')
