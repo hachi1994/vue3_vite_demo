@@ -26,14 +26,19 @@ export default {
     },
     position: {
       mounted(el, bind) {
-        console.log(el, bind, 44);
         el.style.position = "fixed";
         let pos = bind.arg || "top";
         el.style[pos] = bind.value + "px";
       },
       updated(el, bind) {
+        console.log(el, "wri");
         let pos = bind.arg || "top";
         el.style[pos] = bind.value + "px";
+      },
+    },
+    hello: {
+      mounted(el, bind) {
+        console.log(el, bind, 44);
       },
     },
   },
@@ -45,7 +50,7 @@ export default {
   <input type="range" min="0" max="500" v-model="pinPadding" />
   <div v-position:[position]="pinPadding">自定义指令附带参数</div>
   <Child v-position:[position]="pinPadding" />
-  <span v-hello:ye="hello">{{ hello.say }}woqunimd</span>
+  <span v-hello:ye.say="hello">{{ hello.say }}woqunimd</span>
 </template>
 
 <style scoped></style>
