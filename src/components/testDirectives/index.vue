@@ -29,14 +29,19 @@ export default {
     },
     position: {
       mounted(el, bind) {
-        // console.log(el, bind, 44);
         el.style.position = "fixed";
         let pos = bind.arg || "top";
         el.style[pos] = bind.value + "px";
       },
       updated(el, bind) {
+        console.log(el, "wri");
         let pos = bind.arg || "top";
         el.style[pos] = bind.value + "px";
+      },
+    },
+    hello: {
+      mounted(el, bind) {
+        console.log(el, bind, 44);
       },
     },
   },
