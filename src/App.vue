@@ -8,6 +8,7 @@ let routes = ref([
   { name: "testProvide", path: "/testProvide" },
   { name: "testMixin", path: "/testMixin" },
   { name: "testDirectives", path: "/testDirectives" },
+  { name: "testAsyncComponent", path: "/testAsyncComponent" },
 ]);
 </script>
 

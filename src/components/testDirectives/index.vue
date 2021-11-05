@@ -2,6 +2,9 @@
 import { onMounted, ref, reactive } from "vue";
 import Child from "./Child.vue";
 let hello = reactive({ say: "hello" });
+function mountedFunc() {
+  console.log("mounted!");
+}
 onMounted(function () {
   console.log("testMixin", hello);
   setTimeout(() => {
@@ -26,7 +29,7 @@ export default {
     },
     position: {
       mounted(el, bind) {
-        console.log(el, bind, 44);
+        // console.log(el, bind, 44);
         el.style.position = "fixed";
         let pos = bind.arg || "top";
         el.style[pos] = bind.value + "px";
@@ -44,7 +47,7 @@ export default {
   <input type="text" v-focus />
   <input type="range" min="0" max="500" v-model="pinPadding" />
   <div v-position:[position]="pinPadding">自定义指令附带参数</div>
-  <Child v-position:[position]="pinPadding" />
+  <Child @vnode-mounted="mountedFunc" v-position:[position]="pinPadding" />
   <span v-hello:ye="hello">{{ hello.say }}woqunimd</span>
 </template>
 

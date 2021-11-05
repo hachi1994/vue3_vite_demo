@@ -8,6 +8,7 @@ import TestProvide from '@components/provide/TestProvide.vue'
 import TestMixin from '@components/testMixin/Index.vue'
 import TestDirectives from '@components/testDirectives/Index.vue'
 import TestRenderFunction from '@components/renderFunction/Index.vue'
+import TestAsyncComponent from '@components/asyncComponent/AsyncComponent.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
     { path: '/', component: Home },
@@ -15,7 +16,8 @@ const routes = [
     { path: '/testProvide', component: TestProvide },
     { path: '/testMixin', component: TestMixin },
     { path: '/testDirectives', component: TestDirectives },
-    { path: '/testRenderFunction', component: TestRenderFunction }
+    { path: '/testRenderFunction', component: TestRenderFunction },
+    { path: '/testAsyncComponent', component: TestAsyncComponent }
 ]
 const router = createRouter({
     history: createWebHashHistory(),
@@ -34,7 +36,7 @@ app.mixin({
 
 app.directive('hello',{
     mounted(el,bind){
-        console.log('123!',el,bind)
+        //console.log('123!',el,bind)
     }
 })
 
